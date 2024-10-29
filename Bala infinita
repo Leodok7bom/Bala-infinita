@@ -1,0 +1,7 @@
+local old; old = hookmetamethod(game, "__index", function(this, index)
+  if not checkcaller() and tostring(this) == "CurrentAmmo" and index == "Value" then
+      return 2
+  end
+ 
+  return old(this, index)
+end)
